@@ -23,7 +23,7 @@ Python standard libraries (smtplib, email)
 No external libraries need to be installed, as the project uses only native Python modules.
 Installation
 Clone or download the repository:
-bashgit clone https://github.com/your-username/email-automation.git
+bashgit clone https://github.com/sheylaghost/email-automation.git
 cd email-automation
 Or simply download the bot_email.py file directly.
 Configuration
