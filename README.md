@@ -1,180 +1,6 @@
 # AutomacaoDeEmail
 
-Email Automation in Python / Automação de Email em Python
-English | Português
-
-English
-Complete email automation system using Python, with support for Gmail, Outlook, and Yahoo. Includes functionality for sending simple emails, HTML-formatted emails, attachments, and bulk sending.
-Features
-
-Simple text email sending
-HTML-formatted email support
-File attachments (PDF, images, documents)
-Multiple recipient support
-Message personalization per recipient
-Compatible with Gmail, Outlook/Hotmail, and Yahoo
-Automatic email provider validation
-
-Requirements
-
-Python 3.6 or higher
-Python standard libraries (smtplib, email)
-
-No external libraries need to be installed, as the project uses only native Python modules.
-Installation
-Clone or download the repository:
-bashgit clone https://github.com/sheylaghost/email-automation.git
-cd email-automation
-Or simply download the bot_email.py file directly.
-Configuration
-Step 1: Enable Two-Factor Authentication
-To use app passwords, you need to have two-factor authentication enabled on your email account.
-Gmail:
-
-Visit https://myaccount.google.com/security
-Locate "2-Step Verification"
-Enable if not already activated
-
-Outlook/Hotmail:
-
-Visit https://account.microsoft.com/security
-Enable two-factor authentication
-
-Step 2: Generate App Password
-App passwords are specific credentials that allow applications to access your account without using your main password.
-Gmail:
-
-Visit https://myaccount.google.com/apppasswords
-Select "Other (Custom name)"
-Type "Python Email Bot"
-Click "Generate"
-Copy the 16-character password (remove spaces)
-
-Outlook/Hotmail:
-
-Visit https://account.live.com/proofs/manage/additional
-Locate "App security"
-Click "Create a new app password"
-Copy the generated password
-
-Step 3: Configure Credentials
-Edit the bot_email.py file and locate the final section of the code:
-pythonif __name__ == "__main__":
-    # Configuration
-    MY_EMAIL = "your_email@gmail.com"
-    APP_PASSWORD = "your16charpassword"
-Replace:
-
-your_email@gmail.com with your real email address
-your16charpassword with the generated app password (no spaces)
-
-Usage
-Run Basic Example
-bashpython bot_email.py
-This command will execute the configured example and send a test email to the specified address.
-Send Simple Email
-pythonfrom bot_email import AutomacaoEmail
-
-auto = AutomacaoEmail("your_email@gmail.com", "your_app_password")
-
-auto.enviar_email_simples(
-    destinatario="recipient@example.com",
-    assunto="Email Subject",
-    mensagem="Message body"
-)
-Send HTML Email
-pythonhtml_content = """
-<html>
-  <body>
-    <h1>Title</h1>
-    <p>HTML formatted content</p>
-  </body>
-</html>
-"""
-
-auto.enviar_email_html(
-    destinatario="recipient@example.com",
-    assunto="Formatted Email",
-    html=html_content
-)
-Send Email with Attachment
-pythonauto.enviar_email_com_anexo(
-    destinatario="recipient@example.com",
-    assunto="Monthly Report",
-    mensagem="Please find attached the report.",
-    arquivo_path="path/to/file.pdf"
-)
-Send to Multiple Recipients
-pythonemail_list = [
-    "person1@example.com",
-    "person2@example.com",
-    "person3@example.com"
-]
-
-auto.enviar_para_multiplos(
-    lista_destinatarios=email_list,
-    assunto="Important Notification",
-    mensagem="Message for everyone"
-)
-```
-
-### Project Structure
-```
-email-automation/
-├── bot_email.py           # Main code
-└── README.md              # This file
-Security
-Locally Stored Data
-
-Email credentials (only in memory during execution)
-No data is permanently stored on disk
-
-Best Practices
-
-Never share your app passwords
-Do not send more than 500 emails per day (Gmail limit)
-Add delays between bulk sends to avoid blocks
-Use environment variables for credentials in production
-Never include credentials in public repositories
-
-Data Not Collected
-
-Main email passwords
-Content of sent emails
-Recipient information
-Telemetry or usage metrics
-
-Limitations
-
-Gmail: approximately 500 emails per day
-Outlook: approximately 300 emails per day
-Yahoo: approximately 500 emails per day
-Recommended delay between sends: 1-2 seconds
-
-Troubleshooting
-Error: Username and Password not accepted
-
-Verify that two-factor authentication is enabled
-Make sure to use an app password, not your regular password
-Remove all spaces from the app password
-Generate a new app password and try again
-
-Error: Connection refused
-
-Check your internet connection
-Confirm that the firewall is not blocking port 587
-Try again after a few minutes
-
-Email not received
-
-Check spam folder
-Confirm that the recipient address is correct
-Wait a few minutes (delivery may be delayed)
-
-License
-MIT License
-
-Português
+Automação de Email em Python
 Sistema completo de automação para envio de emails utilizando Python, com suporte para Gmail, Outlook e Yahoo. Inclui funcionalidades para envio de emails simples, formatados em HTML, com anexos e para múltiplos destinatários.
 Características
 
@@ -289,7 +115,7 @@ auto.enviar_para_multiplos(
 )
 ```
 
-### Estrutura do Projeto
+## Estrutura do Projeto
 ```
 automacao-email/
 ├── bot_email.py           # Código principal
@@ -342,9 +168,230 @@ Verifique a pasta de spam
 Confirme que o endereço do destinatário está correto
 Aguarde alguns minutos (pode haver atraso na entrega)
 
-Licença
-MIT License
-Copyright (c) 2025
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+English
+
+Python Email Automation
+
+Complete email automation system using Python, supporting Gmail, Outlook, and Yahoo. Includes functionalities for sending simple emails, HTML-formatted emails, emails with attachments, and to multiple recipients.
+
+Features
+
+Send plain text emails
+
+Support for HTML-formatted emails
+
+Attach files (PDFs, images, documents)
+
+Send to multiple recipients
+
+Personalize messages for each recipient
+
+Compatible with Gmail, Outlook/Hotmail, and Yahoo
+
+Automatic email provider validation
+
+Requirements
+
+Python 3.6 or higher
+
+Python standard libraries (smtplib, email)
+
+No external libraries are needed, as the project only uses Python’s native modules.
+
+Installation
+
+Clone or download the repository:
+
+git clone https://github.com/your-username/automacao-email.git
+cd automacao-email
+
+
+Or simply download the bot_email.py file directly.
+
+Configuration
+Step 1: Enable Two-Factor Authentication
+
+To use app passwords, you must have two-factor authentication enabled on your email account.
+
+Gmail:
+
+Go to https://myaccount.google.com/security
+
+Locate "2-Step Verification"
+
+Enable it if not already active
+
+Outlook/Hotmail:
+
+Go to https://account.microsoft.com/security
+
+Enable two-step verification
+
+Step 2: Generate App Password
+
+App passwords are special credentials that allow apps to access your account without using your main password.
+
+Gmail:
+
+Go to https://myaccount.google.com/apppasswords
+
+Select "Other (Custom Name)"
+
+Enter "Python Email Bot"
+
+Click "Generate"
+
+Copy the 16-character password (remove any spaces)
+
+Outlook/Hotmail:
+
+Go to https://account.live.com/proofs/manage/additional
+
+Locate "App passwords"
+
+Click "Create a new app password"
+
+Copy the generated password
+
+Step 3: Configure Credentials
+
+Edit the bot_email.py file and find the final section of the code:
+
+if __name__ == "__main__":
+    # Configuration
+    MY_EMAIL = "your_email@gmail.com"
+    APP_PASSWORD = "your16charapppassword"
+
+
+Replace:
+
+your_email@gmail.com with your real email address
+
+your16charapppassword with the generated app password (no spaces)
+
+Usage
+Run the Basic Example
+python bot_email.py
+
+
+This will execute the configured example and send a test email to the specified address.
+
+Send a Simple Email
+from bot_email import AutomacaoEmail
+
+auto = AutomacaoEmail("your_email@gmail.com", "your_app_password")
+
+auto.send_simple_email(
+    recipient="recipient@example.com",
+    subject="Email Subject",
+    message="Email body content"
+)
+
+Send HTML Email
+html_content = """
+<html>
+  <body>
+    <h1>Title</h1>
+    <p>HTML-formatted content</p>
+  </body>
+</html>
+"""
+
+auto.send_html_email(
+    recipient="recipient@example.com",
+    subject="Formatted Email",
+    html=html_content
+)
+
+Send Email with Attachment
+auto.send_email_with_attachment(
+    recipient="recipient@example.com",
+    subject="Monthly Report",
+    message="Please find the report attached.",
+    file_path="path/to/file.pdf"
+)
+
+Send to Multiple Recipients
+email_list = [
+    "person1@example.com",
+    "person2@example.com",
+    "person3@example.com"
+]
+
+auto.send_to_multiple(
+    recipients_list=email_list,
+    subject="Important Notification",
+    message="Message for everyone"
+)
+
+Project Structure
+automacao-email/
+├── bot_email.py           # Main code
+└── README.md              # This file
+
+Security
+Locally Stored Data
+
+Email credentials are kept only in memory during execution
+
+No data is permanently stored on disk
+
+Best Practices
+
+Never share your app passwords
+
+Do not send more than 500 emails per day (Gmail limit)
+
+Add delays between bulk sends to avoid being blocked
+
+Use environment variables for credentials in production
+
+Never include credentials in public repositories
+
+Data Not Collected
+
+Main email passwords
+
+Content of sent emails
+
+Recipient information
+
+Telemetry or usage metrics
+
+Limitations
+
+Gmail: ~500 emails/day
+
+Outlook: ~300 emails/day
+
+Yahoo: ~500 emails/day
+
+Recommended delays between sends: 1–2 seconds
+
+Troubleshooting
+
+Error: Username and Password not accepted
+
+Ensure two-factor authentication is enabled
+
+Use an app password, not your normal password
+
+Remove all spaces from the app password
+
+Generate a new app password and try again
+
+Error: Connection refused
+
+Check your internet connection
+
+Make sure the firewall isn’t blocking port 587
+
+Try again after a few minutes
+
+Email not received
+
+Check your spam folder
+
+Confirm the recipient’s address is correct
+
+Wait a few minutes (delivery may be delayed)
